@@ -1,0 +1,30 @@
+# dbt_project.yml
+
+name: 'dbt_bigquery_demo'
+version: '1.0.0'
+
+profile: 'dbt_bigquery_demo'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_bigquery_demo:
+    # Config for all models
+    +materialized: view
+    
+    staging:
+      +materialized: view
+      +schema: demo_staging
+    
+    marts:
+      +materialized: table
+      +schema: demo_mart
