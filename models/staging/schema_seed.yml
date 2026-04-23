@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: seed
+    description: Seed data sources
+    database: "{{ var('source_database', 'project-962ed868-ab8d-4995-821') }}"
+    schema: demo_staging
+    tables:
+      - name: customers
+        description: Customer seed data
+        columns:
+          - name: customer_id
+          - name: first_name
+          - name: last_name
+          - name: email
+          - name: city
+          - name: state
+          - name: signup_date
+          - name: cohort_month
+          - name: acquisition_channel
+
+      - name: orders
+        description: Orders seed data
+        columns:
+          - name: order_id
+          - name: customer_id
+          - name: customer_email
+          - name: ordered_at
+          - name: status
+          - name: subtotal_usd
+          - name: shipping_usd
+          - name: tax_usd
+          - name: total_usd
+          - name: attribution_channel
+
+      - name: order_items
+        description: Order items seed data
+        columns:
+          - name: order_item_id
+          - name: order_id
+          - name: product_id
+          - name: quantity
+          - name: unit_price_usd
+          - name: line_total_usd
+
+      - name: products
+        description: Products seed data
+        columns:
+          - name: product_id
+          - name: product_name
+          - name: category
+          - name: list_price
+          - name: unit_cost
+          - name: status

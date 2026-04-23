@@ -1,0 +1,92 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: Staging model for customers seed data
+    columns:
+      - name: customer_id
+        description: Primary key for customers
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: Customer first name
+      - name: last_name
+        description: Customer last name
+      - name: email
+        description: Customer email address
+      - name: city
+        description: Customer city
+      - name: state
+        description: Customer state
+      - name: signup_date
+        description: Date customer signed up
+      - name: cohort_month
+        description: Month customer cohort
+      - name: acquisition_channel
+        description: Channel through which customer was acquired
+
+  - name: stg_orders
+    description: Staging model for orders seed data
+    columns:
+      - name: order_id
+        description: Primary key for orders
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Foreign key to customer
+      - name: customer_email
+        description: Customer email
+      - name: ordered_at
+        description: Order timestamp
+      - name: status
+        description: Order status
+      - name: subtotal_usd
+        description: Order subtotal in USD
+      - name: shipping_usd
+        description: Shipping cost in USD
+      - name: tax_usd
+        description: Tax amount in USD
+      - name: total_usd
+        description: Total order amount in USD
+      - name: attribution_channel
+        description: Marketing attribution channel
+
+  - name: stg_order_items
+    description: Staging model for order_items seed data
+    columns:
+      - name: order_item_id
+        description: Primary key for order items
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Foreign key to order
+      - name: product_id
+        description: Foreign key to product
+      - name: quantity
+        description: Quantity ordered
+      - name: unit_price_usd
+        description: Unit price in USD
+      - name: line_total_usd
+        description: Line total in USD
+
+  - name: stg_products
+    description: Staging model for products seed data
+    columns:
+      - name: product_id
+        description: Primary key for products
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: Product name
+      - name: category
+        description: Product category
+      - name: price_usd
+        description: Product price in USD
+      - name: unit_cost
+        description: Unit cost in USD
+      - name: status
+        description: Product status
