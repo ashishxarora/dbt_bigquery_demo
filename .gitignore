@@ -1,5 +1,36 @@
-# you shouldn't commit these into source control
-# these are the default directory names, adjust/add to fit your needs
+
+# dbt
 target/
 dbt_packages/
 logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MCP/cache dirs
+.altimate-code/
+.ruff_cache/
